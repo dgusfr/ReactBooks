@@ -66,14 +66,14 @@ function Favoritos() {
       <div>
         <Titulo>Aqui estão seus livros favoritos:</Titulo>
         <ResultadoContainer>
-          {favoritos.length !== 0
-            ? favoritos.map((favorito) => (
-                <Resultado key={favorito.id} onClick={() => deletaFavorito(favorito.id)}>
-                  <p>{favorito.nome}</p>
-                  <img src={livroImg} alt="Livro" />
-                </Resultado>
-              ))
-            : null}
+          {favoritos.length !== 0 ? (
+            favoritos.map(favorito => (
+              <Resultado key={favorito.id} onClick={() => deletaFavorito(favorito.id)}>
+                <p>{favorito.nome}</p>
+                <img src={livroImg} alt="Livro" />
+              </Resultado>
+            ))
+          ) : null}
         </ResultadoContainer>
       </div>
     </AppContainer>

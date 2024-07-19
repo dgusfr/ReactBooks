@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Home from './rotas/Home.jsx';
-import reportWebVitals from './reportWebVitals';
+import Favoritos from './rotas/Favoritos.jsx';
+import reportWebVitals from './reportWebVitals.js';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './componentes/Header.jsx';
-import Favoritos from './rotas/Favoritos.jsx';
+import Header from './componentes/Header/index.jsx';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   li {
-    list-style: none;    
+    list-style: none;
   }
 `;
 

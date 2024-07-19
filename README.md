@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# Plataforma de Livros
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Uma aplicação web para exibir e gerenciar uma coleção de livros com detalhes como título, autor, preço e quantidade.
 
-## Available Scripts
+## Interface
 
-In the project directory, you can run:
+<div align="center">
+  <img src="img/logo.png" alt="Imagem do Projeto" width="900">
+</div>
 
-### `npm start`
+## Sumário
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Status](#status)
+- [Descrição](#descrição)
+- [Funcionalidades](#funcionalidades)
+- [Explicação](#explicação)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Como Usar](#como-usar)
+- [Autor](#autor)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologias Utilizadas
 
-### `npm test`
+<div style="display: flex; flex-direction: row;">
+  <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
+    <img src="img/react.png" alt="Logo React" width="100"/>
+  </div>
+  <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
+    <img src="img/styled-components.png" alt="Logo Styled-Components" width="100"/>
+  </div>
+  <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
+    <img src="img/react-router.png" alt="Logo React Router" width="100"/>
+  </div>
+</div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Status
 
-### `npm run build`
+![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Descrição
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A Plataforma de Livros é uma aplicação React que exibe uma lista de livros com detalhes como título, autor, preço e quantidade. Utiliza `styled-components` para estilização e `react-router-dom` para gerenciamento de rotas.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Funcionalidades
 
-### `npm run eject`
+- Exibição de uma lista de livros.
+- Detalhes dos livros, incluindo imagem, título, autor e preço.
+- Navegação entre as páginas Home e Favoritos.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Explicação
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```jsx
+import React, { useState, useEffect } from 'react';
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const Livros = () => {
+  const [livros, setLivros] = useState([]);
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  useEffect(() => {
+    fetch('/livros.json')
+      .then(response => response.json())
+      .then(data => setLivros(data))
+      .catch(error => console.error('Erro ao carregar os livros:', error));
+  }, []);
 
-## Learn More
+  return (
+    <div>
+      <h1>Livros</h1>
+      <ul>
+        {livros.map((livro, index) => (
+          <li key={index}>
+            <h2>{livro.titulo}</h2>
+            <p>Autor: {livro.autor}</p>
+            <p>Preço: R${livro.preco}</p>
+            <img src={livro.imagem} alt={livro.alt} width="100" />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default Livros;
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Como Usar
+Clone o repositório:
 
-### Code Splitting
+git clone https://github.com/usuario/repositorio.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Navegue até o diretório do projeto:
 
-### Analyzing the Bundle Size
+cd repositorio
+Instale as dependências:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+npm install
+Inicie o servidor de desenvolvimento:
 
-### Making a Progressive Web App
+npm start
+Acesse a aplicação no navegador: http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Autor
+Desenvolvido no curso de React da alura

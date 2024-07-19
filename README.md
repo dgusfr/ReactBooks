@@ -23,19 +23,16 @@ Uma aplicação web para exibir e gerenciar uma coleção de livros com detalhes
 
 <div style="display: flex; flex-direction: row;">
   <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
-    <img src="img/react.png" alt="Logo React" width="100"/>
+    <img src="img/js.png" alt="Logo React" width="100"/>
   </div>
   <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
-    <img src="img/styled-components.png" alt="Logo Styled-Components" width="100"/>
-  </div>
-  <div style="margin-right: 20px; display: flex; justify-content: flex-start;">
-    <img src="img/react-router.png" alt="Logo React Router" width="100"/>
+    <img src="img/react.png" alt="Logo React Router" width="100"/>
   </div>
 </div>
 
 ## Status
 
-![Em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge)
+![Concluído](http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
 
 ## Descrição
 
